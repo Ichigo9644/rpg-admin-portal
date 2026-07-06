@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>RPG Admin Portal</title>
+    <style>
+        :root {
+            --bg-color: #0d0e15;
+            --panel-bg: #151828;
+            --text-color: #e0e0e0;
+            --neon-cyan: #00ffff;
+            --neon-magenta: #ff00ff;
+        }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            margin-bottom: 60px;
+        }
+        h1 {
+            font-size: 3.5rem;
+            color: #fff;
+            text-shadow: 0 0 15px var(--neon-cyan), 0 0 30px var(--neon-cyan);
+            margin: 0;
+            letter-spacing: 3px;
+        }
+        p.subtitle {
+            color: var(--neon-magenta);
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px rgba(255,0,255,0.5);
+            margin-top: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 90%;
+            max-width: 1000px;
+        }
+        .card {
+            background: var(--panel-bg);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 40px 30px;
+            text-align: center;
+            text-decoration: none;
+            color: var(--text-color);
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 3px;
+            background: var(--neon-cyan);
+            opacity: 0;
+            transition: 0.3s;
+        }
+        .card.magenta::before { background: var(--neon-magenta); }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-cyan);
+            box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+            background: rgba(0, 255, 255, 0.05);
+        }
+        .card.magenta:hover {
+            border-color: var(--neon-magenta);
+            box-shadow: 0 0 25px rgba(255, 0, 255, 0.2);
+            background: rgba(255, 0, 255, 0.05);
+        }
+        .card:hover::before { opacity: 1; }
+
+        .card .icon {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+        }
+        .card h2 {
+            margin: 0 0 15px 0;
+            font-size: 1.6rem;
+            color: #fff;
+        }
+        .card p {
+            color: #aaa;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+        .footer {
+            margin-top: auto;
+            padding: 30px;
+            color: #555;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>RPG ADMIN PORTAL</h1>
+        <p class="subtitle">SERVER MANAGEMENT SYSTEM</p>
+    </div>
+
+    <div class="grid">
+        <a href="config-maker.html" class="card">
+            <div class="icon">⚙️</div>
+            <h2>Config Editor</h2>
+            <p>RPGの核となる <code>config.yml</code> ファイルを読み込み、アイテムやモブ、エリアの設定を直感的に編集・作成します。</p>
+        </a>
+
+        <a href="#" class="card magenta" onclick="alert('現在はConfigエディタ内に統合されています！'); return false;">
+            <div class="icon">📖</div>
+            <h2>Quest & Guide</h2>
+            <p>クエストの会話文やガイドブックのページを、Minecraftの装飾コードを見ながらプレビュー・編集します。</p>
+        </a>
+
+        <a href="#" class="card magenta" onclick="alert('準備中...'); return false;">
+            <div class="icon">📊</div>
+            <h2>Player Data Viewer</h2>
+            <p>サーバーに保存されているプレイヤーの進行状況データや、未対応のエラー報告などを解析・確認します。</p>
+        </a>
+    </div>
+
+    <div class="footer">
+        &copy; 2024 RPG Server Development Team.
+    </div>
+
+</body>
+</html>
